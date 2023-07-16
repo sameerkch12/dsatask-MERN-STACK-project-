@@ -11,3 +11,9 @@ ye ek key hai jisse tum log kuch bhi edit kr sakoge mere ess repositry pe.
 
 2){@github.com/sameerkch12/dsatask.git}
 ye normal repositry ka link hai.
+
+//etna hone ke bad (node_mudule) ka folder install karna hai
+1)cd dsatask/dsatask
+2)npm install
+3)npm start
+etna hone ke baad project start ho  jayega
