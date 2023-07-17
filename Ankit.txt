@@ -1,3 +1,9 @@
 > 17-07-2023
 > Included bootstrap stylesheet link
-> 
+
+> 18-07-2023
+> Updated Navigation Logic
+> Updated Login from
+> Updated Sign Up 
+> Implememted navigation with another logic
+
