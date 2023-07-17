@@ -15,6 +15,7 @@ router.post('/createtask', async (req, res) => {
       let existingDate = null;
       for (let i = 0; i < userTask.Dates.length; i++) {
         if (userTask.Dates[i].Date === BodyDate) {
+          //compare to Bodydate with database date
           existingDate = userTask.Dates[i];
           console.log(existingDate)
           break;

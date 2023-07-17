@@ -1,0 +1,23 @@
+step to clone this task in your pc
+
+1)open and folder where you want to install React project
+2) then open terminal
+3) past this link
+4)git clone https://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@github.com/sameerkch12/dsatask.git
+
+Link ke bare mai explain kr raha hu
+1){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}
+ye ek key hai jisse tum log kuch bhi edit kr sakoge mere ess repositry pe.
+
+2){@github.com/sameerkch12/dsatask.git}
+ye normal repositry ka link hai.
+
+//etna hone ke bad (node_mudule) ka folder install karna hai
+1)cd dsatask/dsatask
+2)npm install
+3)npm start
+etna hone ke baad project start ho  jayega
+
+update time 17/7/2020 {5.53}
+submit button mai click karne se ess api mai [email,date,problem] post karna
+api= http://localhost:5000/api/createtask
