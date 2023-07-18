@@ -6,7 +6,7 @@ const TaskSchema = new Schema({
 });
 
 const DateSchema = new Schema({
-  Date: Date,
+  Date: { type: Date, default: Date.now },
   Tasks: [TaskSchema],
 });
 
