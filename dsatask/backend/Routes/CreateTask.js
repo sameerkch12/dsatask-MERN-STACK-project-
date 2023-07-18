@@ -59,3 +59,19 @@ router.post('/createtask', async (req, res) => {
 });
 
 module.exports = router;
+
+/*
+
+JSON forment for Inserting Task in Database .
+api for create task
+(PSOT)
+This type of send to backend for this api  
+http://localhost:5000/api/createtask
+
+{
+  "Email": "test3@example.com",
+  "BodyDate": "2023-07-20",
+  "Problem": "Finish project"
+}
+
+*/

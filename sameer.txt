@@ -18,6 +18,32 @@ ye normal repositry ka link hai.
 3)npm start
 etna hone ke baad project start ho  jayega
 
-update time 17/7/2020 {5.53}
+
+
+Update time 19/7/2020 {2.49}
 submit button mai click karne se ess api mai [email,date,problem] post karna
-api= http://localhost:5000/api/createtask
+JSON forment for Inserting Task in Database .
+api for create task
+(POST)
+This type of send to backend for this api  
+http://localhost:5000/api/createtask
+{
+  "Email": "test1@example.com",
+  "BodyDate": "2023-07-20",
+  "Problem": "Finish project"
+}
+
+
+
+Update time 19/7/2020 {2.49}
+JSON forment to fateh upcoming Tasks from database
+api for upcomingtask
+(GET)
+http://localhost:5000/api/upcomingtask
+{
+    "Email": "test1@example.com",
+    "BodyDate": "2023-12-10T00:00:00.000Z"
+}
+*/
+
+Thunder client pe API Testing check kr skte ho....
