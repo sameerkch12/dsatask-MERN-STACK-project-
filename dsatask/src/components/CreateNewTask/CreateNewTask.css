@@ -1,0 +1,21 @@
+.task-item {
+    background-color: #2ce457;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    max-width: 400px;
+    flex-direction: row;
+}  
+
+.upper-task-data{
+    display: flex;
+}
+
+.lower-task-data{
+    display:flex;
+    gap: 10px;
+}
+
+.input-data{
+    width: 500px;
+}

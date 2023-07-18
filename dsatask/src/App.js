@@ -1,7 +1,7 @@
 
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
-import Home from './Screen/Home';
+import Home from './Screen/Home/Home';
 import Login from './Screen/Login/Login';
 import SignUp from './Screen/SignUp/SignUp';
 import UpcomingContest from './Screen/UpcomingContest';

@@ -1,0 +1,25 @@
+.task-item {
+    background-color: #2ce457;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}  
+
+.upper-task-data{
+    display:flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.lower-task-data{
+    display: flex;
+    flex-direction: column;
+}
+
+.truncate-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 400px;
+}
