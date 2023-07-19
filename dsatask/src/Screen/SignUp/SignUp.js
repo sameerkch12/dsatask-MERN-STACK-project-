@@ -1,11 +1,18 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
-
+  const navigate = useNavigate()
+  const [username,setUsername] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repassword, setRepassword] = useState('');
+
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value)
+  }
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -19,7 +26,7 @@ export default function SignUp() {
     setRepassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // Perform login logic here
     if(password !== repassword) {
@@ -27,20 +34,51 @@ export default function SignUp() {
       return;
     }
 
-    console.log('Email:', email);
-    console.log('Password:', password);
+    const userData = {
+      name: username,
+      email: email,
+      password: password,
+      confirmPassword: repassword
+    }
+
     setEmail('')
+    setUsername('')
     setPassword('')
     setRepassword('')
     
     // We will have to load the home page with the user data
-    window.location.href = '/home'
+    await axios
+      .post('http://localhost:5000/api/signup',userData)
+      .then((res) => {
+        console.log(res)
+        localStorage.setItem("loggedIn",true)
+        localStorage.setItem("email",userData.email)
+        navigate('/home')
+      })
+      .catch((err) => {
+        alert("Some error occured")
+        console.log(err)
+      })
+    
+
+      
   };
 
   return (
     <div className="login-container">
-      <form onSubmit={handleSubmit}>
+      <form >
         <h2>Sign Up</h2>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            className="form-control"
+            value={username}
+            onChange={handleUsernameChange}
+            required
+          />
+        </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
@@ -75,7 +113,7 @@ export default function SignUp() {
           />
         </div>
         <p>Already have an account? <Link to='/login'>Log in</Link></p>
-        <button type="submit" className="btn btn-primary text-align-center">Create Account</button>
+        <button onClick={handleSubmit} className="btn btn-primary text-align-center">Create Account</button>
       </form>
     </div>
   )

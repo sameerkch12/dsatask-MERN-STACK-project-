@@ -1,11 +1,14 @@
 import React, {useState} from 'react'
 import './Login.css'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -14,18 +17,32 @@ export default function Login() {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    // Perform login logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
-    
+
+    const userData = {
+      email: email,
+      password: password
+    }
+
     setEmail('')
     setPassword('')
+    // Perform login logic here
+    
+    await axios
+      .post('http://localhost:5000/api/login',userData)
+      .then((res) => {
+        console.log(res)
+        localStorage.setItem("loggedIn",true)
+        localStorage.setItem("email",userData.email)
+        navigate('/home')
+      })
+      .catch((err) => {
+        alert("Some error occured. Please try again later")
+        console.log(err)
+      })
 
-    // We will have to load the home page with the user data
-    window.location.href = '/home'
-  };
+  }
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit}>

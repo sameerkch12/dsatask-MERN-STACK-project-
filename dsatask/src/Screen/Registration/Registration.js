@@ -3,6 +3,7 @@ import './Registration.css'
 import { Link } from 'react-router-dom'
 
 export default function Registration() {
+  localStorage.setItem('loggedIn',false)
   return (
     <div>
       Register (---) 
