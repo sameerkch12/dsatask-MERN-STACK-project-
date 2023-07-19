@@ -73,3 +73,17 @@ http://localhost:5000/api/login
 */
 
 Thunder client pe API Testing check kr skte ho....
+
+
+
+/Update time 19/07/23/ 9.35
+
+JSON forment to fateh Today Tasks from database
+api for TodayTask
+(GET)
+http://localhost:5000/api/todaytask
+{
+    "Email": "sameer.sc62@gmail.com",
+    "BodyDate": "2023-07-19"
+}
+*/
