@@ -36,9 +36,8 @@ api for create user
 (POST)
 http://localhost:5000/api/login
 {
-  "name": "John Doe",
-  "email": "johndoe2@example.com",
-  "password": "secretpassword",
-  "confirmPassword": "secretpassword"
+  "email": "johndoe@example.com",
+  "password": "secretpassword"
 }
+
 */
