@@ -5,7 +5,7 @@ const UserTask = require('../Model/UserTask');
 router.get('/upcomingtask', async (req, res) => {
   try {
     // Retrieve user's email and current date from the request query parameters
-    const { Email, BodyDate } = req.body;
+    const { Email, BodyDate } = req.query;
 
     // Find the user in the database based on the email
     const user = await UserTask.findOne({ Email });
@@ -19,9 +19,7 @@ router.get('/upcomingtask', async (req, res) => {
     const upcomingTasks = [];
     for (let i = 0; i < user.Dates.length; i++) {
       const date = user.Dates[i];
-      console.log("DATABASE DATE ->",date.Date)
-      console.log("BODYDATE DATE ->",BodyDate)
-      if (new Date(date.Date) > new Date(BodyDate))  {
+      if (new Date(date.Date) > new Date(BodyDate)) {
         upcomingTasks.push(...date.Tasks);
       }
     }
@@ -41,9 +39,6 @@ module.exports = router;
 JSON forment to fateh upcoming Tasks from database
 api for upcomingtask
 (GET)
-http://localhost:5000/api/upcomingtask
-{
-    "Email": "test1@example.com",
-    "BodyDate": "2023-12-10T00:00:00.000Z"
-}
+http://localhost:5000/api/upcomingtask?Email=sameer.sc62@gmail.com&BodyDate=2023-07-19
+after ? add pass email and date
 */
