@@ -6,6 +6,9 @@
 > Updated Login from
 > Updated Sign Up 
 > Implememted navigation with another logic
-
 > Completed Home Screen wireframe and working
-> Not able to connect with backend and send data using axios
+
+> 19-07-2023
+> Implemented Task Creation through front end 
+> User Sign in and log in process
+> Goto task link working and opens tasks ion a new tab

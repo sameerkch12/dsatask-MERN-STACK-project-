@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
- 
+import './CreateNewTask.css'
 
 const CreateTask = (props) => {
   const email = props.email
@@ -25,9 +25,15 @@ const CreateTask = (props) => {
       Problem: taskLink,
     }
 
-    // const res = await axios.post('http://localhost:5000/api/createtask',newData)
-
-    // console.log(res.json())
+    await axios
+      .post('http://localhost:5000/api/createtask',newData)
+      .then((res) =>{
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err)
+        console.log("'Server Down hai' - SBI")
+      })
 
     console.log(newData)
     setTaskDate('')
@@ -36,15 +42,15 @@ const CreateTask = (props) => {
 
   return (
     
-    <div className='task-item'>
-        <div className='upper-task-data'>
-          <input value={taskLink} className='input-data' type='text' placeholder='link...' onChange={taskLinkChangeHandler}/>
+    <div className='task-create-item'>
+        <div className='upper-task-create-data'>
+          <input value={taskLink} className='input-create-data' type='text' placeholder='link...' onChange={taskLinkChangeHandler}/>
         </div>
-        <div className='lower-task-data'>  
+        <div className='lower-task-create-data'>  
           <div>
-            <input value={taskDate} type='date' placeholder='Date' onChange={taskDateChangeHandler}/>
+            <input value={taskDate} className='input-date-data' type='date' placeholder='Date' onChange={taskDateChangeHandler}/>
           </div>    
-          <button onClick={createTaskHandler}>Add Task</button>
+          <button className='input-create-button' onClick={createTaskHandler}>Add Task</button>
         </div>
     </div>
   )

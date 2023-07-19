@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer'
 export default function UpcomingContest() {
   return (
     <div>
-      <Navbar isLoggedIn={true}/>
+      <Navbar />
       UpcomingContest
       <Footer />
     </div>

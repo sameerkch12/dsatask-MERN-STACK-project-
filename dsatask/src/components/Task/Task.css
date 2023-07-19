@@ -1,9 +1,11 @@
 .task-item {
-    background-color: #2ce457;
+    background-color: #2C3637;
+    color: aliceblue;
     padding: 20px;
     display: flex;
     gap: 10px;
     flex-direction: column;
+    min-width: 375px;
 }  
 
 .upper-task-data{
@@ -22,4 +24,10 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 400px;
+}
+
+.button-style{
+    padding: 10px;
+    background-color: #DBDF00;
+    border: none;
 }
