@@ -16,6 +16,8 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json())
+app.use('/api', require("./Routes/RegistrationUser"));
+app.use('/api', require("./Routes/LoginUser"));
 app.use('/api', require('./Routes/CreateTask'));
 app.use('/api', require('./Routes/UpcomingTask'));
 
