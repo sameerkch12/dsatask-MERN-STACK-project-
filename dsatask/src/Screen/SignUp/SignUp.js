@@ -56,8 +56,8 @@ export default function SignUp() {
         navigate('/home')
       })
       .catch((err) => {
-        alert("Some error occured")
-        console.log(err)
+        alert(err.response.data.message)
+        console.log(err.response.data)
       })
     
 
