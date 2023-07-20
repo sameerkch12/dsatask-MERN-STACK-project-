@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function UpcomingContest() {
   const [UpcomingContestData, setUpcomingContestData] = useState([]);
-  const [BodyDate, setDate] = useState("2023-07-19");
+  const [BodyDate, setDate] = useState(new Date()); 
   const [Email, setEmail] = useState(""); // No default value here
   const navigate = useNavigate();
 
@@ -50,7 +50,7 @@ export default function UpcomingContest() {
     getData();
   }, [Email, BodyDate]);
 
-  
+
   if (!Email) {
     navigate('/signup');
     return null; // Render nothing until the redirect happens
