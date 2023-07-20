@@ -7,13 +7,14 @@ import TodayCard from '../../components/TodayCard/TodayCard'
 import CreateTask from '../../components/CreateNewTask/CreateNewTask'
 import Divider from '../../components/Divider/Divider'
 import { Link } from 'react-router-dom'
-
 export default function Home() {
   const Email = localStorage.getItem("email")
 
   return (
     <div>
       <Navbar/>
+
+
       <div className='container'>
         <div className='time-add'>
           <TodayCard name={Email}/>

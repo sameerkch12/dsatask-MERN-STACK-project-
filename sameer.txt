@@ -35,15 +35,13 @@ http://localhost:5000/api/createtask
 
 
 
-Update time 19/7/2020 {2.49}
+/*
 JSON forment to fateh upcoming Tasks from database
 api for upcomingtask
 (GET)
-http://localhost:5000/api/upcomingtask
-{
-    "Email": "test1@example.com",
-    "BodyDate": "2023-12-10T00:00:00.000Z"
-}
+parameters pass karna URL se
+http://localhost:5000/api/upcomingtask?Email=sameer.sc62@gmail.com&BodyDate=2023-07-19
+after ? add pass email and date
 */
 
 
@@ -81,9 +79,6 @@ Thunder client pe API Testing check kr skte ho....
 JSON forment to fateh Today Tasks from database
 api for TodayTask
 (GET)
-http://localhost:5000/api/todaytask
-{
-    "Email": "sameer.sc62@gmail.com",
-    "BodyDate": "2023-07-19"
-}
+parameters pass karna URL se
+http://localhost:5000/api/todaytask?Email=sameer.sc62@gmail.com&BodyDate=2023-07-19
 */

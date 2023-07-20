@@ -5,7 +5,7 @@ const UserTask = require('../Model/UserTask');
 router.get('/todaytask', async (req, res) => {
   try {
     // Retrieve user's email and current date from the request query parameters
-    const { Email, BodyDate } = req.body;
+    const { Email, BodyDate } = req.query;
 
     // Find the user in the database based on the email
     const user = await UserTask.findOne({ Email });

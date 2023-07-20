@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
+import ProblemSection from '../components/TaskDisplayCode/ProblemSection'
+import './UpcomingContest.css'; 
 
 export default function UpcomingContest() {
   const [UpcomingContestData, setUpcomingContestData] = useState([]);
@@ -30,21 +32,24 @@ export default function UpcomingContest() {
     console.log("BodyDate:", BodyDate);
     getData();
   }, []);
-
-  return (
-    <div>
-      <Navbar />
-      <h1>UpcomingContest</h1>
+//  <li key={index}>{task.Problem}</li>
+return (
+  <div>
+    <Navbar />
+    <h1 style={{ textAlign: 'center' }}>UpcomingContest</h1>
+    <div className="grid-container">
       {UpcomingContestData.length > 0 ? (
-        <ul>
-          {UpcomingContestData.map((task, index) => (
-            <li key={index}>{task.Problem}</li>
-          ))}
-        </ul>
+        UpcomingContestData.map((task, index) => (
+          <ProblemSection
+            key={index}
+            link={task.Problem}
+          />
+        ))
       ) : (
         <p>Loading...</p>
       )}
-      <Footer />
     </div>
-  );
+    <Footer />
+  </div>
+);
 }
