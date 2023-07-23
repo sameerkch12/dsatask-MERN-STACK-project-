@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from "axios";
+import axios from 'axios';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import ProblemSection from '../components/TaskDisplayCode/ProblemSection';
@@ -11,6 +11,7 @@ export default function UpcomingContest() {
   const [UpcomingContestData, setUpcomingContestData] = useState([]);
   const [BodyDate, setDate] = useState(new Date()); 
   const [Email, setEmail] = useState(""); // No default value here
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,7 +20,6 @@ export default function UpcomingContest() {
     if (storedEmail) {
       setEmail(storedEmail);
     }
-   
   }, []);
 
   useEffect(() => {
@@ -27,29 +27,37 @@ export default function UpcomingContest() {
     localStorage.setItem("email", Email);
   }, [Email]);
 
+  useEffect(() => {
+    console.log("Email:", Email);
+    console.log("BodyDate:", BodyDate);
+
+    // Call the API only when both Email and BodyDate are available
+    if (Email && BodyDate) {
+      getData();
+    }
+  }, [Email, BodyDate]);
+
   function getData() {
+    setLoading(true);
     axios
       .get("http://localhost:5000/api/upcomingtask", {
         params: {
           Email: Email,
-          BodyDate: BodyDate,
+          BodyDate: BodyDate.toISOString().slice(0, 10), // Format the date as 'YYYY-MM-DD'
         }
       })
       .then((res) => {
         console.log("API Response:", res.data);
         setUpcomingContestData(res.data.tasks);
+        setLoading(false); // API call is finished
       })
       .catch((error) => {
         console.error("API Error:", error);
+        setLoading(false); // API call is finished (even if there's an error)
       });
   }
 
-  useEffect(() => {
-    console.log("Email:", Email);
-    console.log("BodyDate:", BodyDate);
-    getData();
-  }, [Email, BodyDate]);
-
+  console.log("UpcomingContestData:", UpcomingContestData);
 
   if (!Email) {
     navigate('/signup');
@@ -60,8 +68,11 @@ export default function UpcomingContest() {
     <div>
       <Navbar />
       <h1 style={{ textAlign: 'center' }}>UpcomingContest</h1>
+      <p>Number of Upcoming Contests: {UpcomingContestData.length}</p>
       <div className="grid-container">
-        {UpcomingContestData.length > 0 ? (
+        {loading ? (
+          <p>Loading...</p>
+        ) : UpcomingContestData.length > 0 ? (
           UpcomingContestData.map((task, index) => (
             <ProblemSection
               key={index}
@@ -69,7 +80,7 @@ export default function UpcomingContest() {
             />
           ))
         ) : (
-          <p>Loading...</p>
+          <p>No upcoming contests found.</p>
         )}
       </div>
       <Footer />
