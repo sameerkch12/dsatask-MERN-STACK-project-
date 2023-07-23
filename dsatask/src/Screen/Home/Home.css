@@ -22,3 +22,38 @@
     margin: 20px;
     justify-content: space-around;
 }
+
+.task-create-item {
+    background-color: #2C3637;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    max-width: 400px;
+    flex-direction: column;
+}  
+
+.upper-task-create-data{
+    display: flex;
+}
+
+.lower-task-create-data{
+    display:flex;
+    gap: 10px;
+}
+
+.input-create-data{
+    background: #d9d9d9;
+    border: none;
+    width: 100%;
+}
+
+.input-date-data{
+    background: #d9d9d9;
+    border: none;
+}
+
+.input-create-button{
+    background: #00E0FF;
+    border: none;
+    color: black;
+}
