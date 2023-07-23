@@ -15,10 +15,35 @@ const ProblemSection = ({  link }) => {
     console.log('Delete clicked!');
   };
 
+
+  
+
+  function convertURLToTitle(url) {
+    url = url.replace(/^(https?:\/\/)?/, '');
+  
+    url = url.replace(/^www\./, '');
+  
+    url = url.replace(/\/$/, '').split('/').pop();
+  
+    const parts = url.split('-');
+  
+    const title = parts
+      .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(' ');
+  
+    return title;
+  }
+  
+  const title = convertURLToTitle(link);
+
+
   return (
     <div style={styles.container}>
       <div style={styles.header}>
-        <h2 style={styles.title}>{link}</h2>
+        <div style={{display:"flex",flexDirection:"column",textAlign:"left"}}>
+          <h2 style={styles.title}>{title}</h2>
+          <h2 style={styles.title}>{link}</h2>
+        </div>
         <div style={styles.buttonsContainer}>
           <button style={styles.addButton} onClick={handleUpsolve}>Task Upsolve</button>
           <button style={styles.deleteButton} onClick={handleDelete}>Task Delete</button>
