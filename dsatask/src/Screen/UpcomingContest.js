@@ -40,7 +40,7 @@ export default function UpcomingContest() {
   function getData() {
     setLoading(true);
     axios
-      .get("http://localhost:5000/api/upcomingtask", {
+      .get("https://dsaback.onrender.com/api/upcomingtask", {
         params: {
           Email: Email,
           BodyDate: BodyDate.toISOString().slice(0, 10), // Format the date as 'YYYY-MM-DD'

@@ -48,7 +48,7 @@ export default function SignUp() {
     
     // We will have to load the home page with the user data
     await axios
-      .post('http://localhost:5000/api/signup',userData)
+      .post('https://dsaback.onrender.com/api/signup',userData)
       .then((res) => {
         console.log(res)
         localStorage.setItem("loggedIn",true)

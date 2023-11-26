@@ -26,7 +26,7 @@ const CreateTask = (props) => {
     }
 
     await axios
-      .post('http://localhost:5000/api/createtask',newData)
+      .post('https://dsaback.onrender.com/api/createtask',newData)
       .then((res) =>{
         console.log(res);
       })
