@@ -46,7 +46,7 @@ export default function Home() {
   function getData() {
     setLoading(true);
     axios
-      .get("http://localhost:5000/api/todaytask", {
+      .get("https://dsaback.onrender.com/api/todaytask", {
         params: {
           Email: Email,
           BodyDate: BodyDate.toISOString().slice(0, 10), // Format the date as 'YYYY-MM-DD'
@@ -86,7 +86,7 @@ export default function Home() {
     }
 
     await axios
-      .post('http://localhost:5000/api/createtask',newData)
+      .post('https://dsaback.onrender.com/api/createtask',newData)
       .then((res) =>{
         console.log(res);
         getData()

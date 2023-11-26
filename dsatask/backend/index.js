@@ -6,14 +6,12 @@ const mongoDB = require("./Database")
 mongoDB();
 
 //ye banana he padt hai jab frontend port 3000 se backend port 5000 pe data accept krna hota haii to
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://dsataskfront.onrender.com");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+app.use(cors({
+  origin: "https://dsataskfront.onrender.com",
+  methods: "GET,PUT,PATCH,POST,DELETE",
+  credentials: true, // enable set cookie
+}));
+
 
 app.use(express.json())
 app.use('/api', require("./Routes/RegistrationUser"));
