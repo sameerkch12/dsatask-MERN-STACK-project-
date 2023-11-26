@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 5000
 const mongoDB = require("./Database")
-
+const cors = require('cors');
 mongoDB();
 
 //ye banana he padt hai jab frontend port 3000 se backend port 5000 pe data accept krna hota haii to
