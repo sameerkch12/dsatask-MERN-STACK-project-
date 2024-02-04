@@ -71,9 +71,10 @@ export default function Login() {
           />
         </div>
         <p>Don't have an account? <Link to='/signup' className='icon-link'> Sign Up</Link></p>
-        <button type="submit" className="btn btn-primary text-align-center" disabled={loading}>
-               {loading ? 'Loading...' : 'Submit'}
-        </button>
+       <button type="submit" className="btn btn-primary text-align-center" disabled={loading}>
+                {loading ? 'Loading...' : 'Submit'}
+       </button>
+
       </form>
     </div>
   )
