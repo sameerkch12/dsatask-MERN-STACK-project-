@@ -8,6 +8,7 @@ export default function Login() {
   const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading , setloading] = useState(false);
   
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -70,7 +71,9 @@ export default function Login() {
           />
         </div>
         <p>Don't have an account? <Link to='/signup' className='icon-link'> Sign Up</Link></p>
-        <button type="submit" className="btn btn-primary text-align-center">Login</button>
+        <button type="submit" className="btn btn-primary text-align-center" disabled={loading}>Login
+               {loading ? 'Loading...' : 'Submit'}
+        </button>
       </form>
     </div>
   )
